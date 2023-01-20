@@ -9,8 +9,8 @@ class ItemPrice
 
   def calculate
     {
-      item_total: price + sales_tax + import_tax,
-      item_tax: sales_tax + import_tax
+      item_total: (price + sales_tax + import_tax) * quantity,
+      item_tax: (sales_tax + import_tax) * quantity
     }
   end
 
@@ -26,6 +26,10 @@ class ItemPrice
 
   def imported?
     @imported ||= @item[:imported?]
+  end
+
+  def quantity
+    @quantity ||= @item[:quantity]
   end
 
   def sales_tax

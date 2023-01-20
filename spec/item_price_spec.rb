@@ -9,7 +9,8 @@ describe ItemPrice do
           item: {
             price: 50.0,
             type: :book,
-            imported?: false
+            imported?: false,
+            quantity: 1
           }
         )
 
@@ -25,7 +26,8 @@ describe ItemPrice do
           item: {
             price: 50.0,
             type: :book,
-            imported?: true
+            imported?: true,
+            quantity: 1
           }
         )
 
@@ -43,13 +45,14 @@ describe ItemPrice do
           item: {
             price: 50.0,
             type: :other,
-            imported?: false
+            imported?: false,
+            quantity: 2
           }
         )
 
         expect(item_price.calculate).to eq({
-                                             item_total: 55.0,
-                                             item_tax: 5.0
+                                             item_total: 110.0,
+                                             item_tax: 10.0
                                            })
       end
     end
@@ -59,7 +62,8 @@ describe ItemPrice do
           item: {
             price: 50.0,
             type: :other,
-            imported?: true
+            imported?: true,
+            quantity: 1
           }
         )
 
